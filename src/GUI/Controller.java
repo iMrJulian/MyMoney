@@ -5,9 +5,10 @@
 package GUI;
 
 import java.awt.Color;
-import pokemon.*;
+import java.awt.Rectangle;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
@@ -23,8 +24,6 @@ public class Controller implements ActionListener {
         escuchasBotones(miVista);
     }
 
-    tipo pokemon = new tipo();
-    tipo enemigo = new tipo();
     View miVista;
     
     int porcentaje;
@@ -57,51 +56,167 @@ public class Controller implements ActionListener {
             miVista.jbtnIngreso.setBackground(Color.WHITE);
         }
         
+//        if(e.getSource().equals(miVista.jbtnBills)){
+//            miVista.p4panelTipoGasto.setVisible(false);
+//            miVista.p3panelAgregacion.setVisible(true);
+//            miVista.jbtnGasto.setBackground(Color.yellow);
+//            miVista.jlblAgregar[5].setIcon(new ImageIcon(miVista.iconBills));
+//        }
+        
+        if(e.getSource().equals(miVista.jbtnActivities)){
+            miVista.p4panelTipoGasto.setVisible(false);
+            miVista.p3panelAgregacion.setVisible(true);
+            
+            miVista.jlblAgregar[1].setIcon(new ImageIcon(miVista.iconActivities));
+            miVista.jlblTipo.setText("     Activities");
+//            miVista.jlblAgregar[5].setBounds(new Rectangle(0,70,100,100));
+//            miVista.p3panelAgregacion.add(miVista.jlblAgregar[5]);
+            
+        }
+        
         if(e.getSource().equals(miVista.jbtnBills)){
             miVista.p4panelTipoGasto.setVisible(false);
             miVista.p3panelAgregacion.setVisible(true);
-            miVista.jbtnGasto.setBackground(Color.yellow);
-            miVista.jlblAgregar[5].setIcon(new ImageIcon(miVista.iconBills));
-//            miVista.jlblAgregar[5]= new JLabel(new ImageIcon(miVista.iconEducation));
+            
+            miVista.jlblAgregar[1].setIcon(new ImageIcon(miVista.iconBills));
+            miVista.jlblTipo.setText("    Bills");          
+        }
+        
+        if(e.getSource().equals(miVista.jbtnBusinnes)){
+            miVista.p4panelTipoGasto.setVisible(false);
+            miVista.p3panelAgregacion.setVisible(true);
+            
+            miVista.jlblAgregar[1].setIcon(new ImageIcon(miVista.iconBusinnes));
+            miVista.jlblTipo.setText("     Negocios");
         }
         
         if(e.getSource().equals(miVista.jbtnEducation)){
             miVista.p4panelTipoGasto.setVisible(false);
             miVista.p3panelAgregacion.setVisible(true);
-            miVista.jbtnGasto.setBackground(Color.yellow);
-            miVista.jlblAgregar[5].setIcon(new ImageIcon(miVista.iconEducation));
-//            miVista.jlblAgregar[5]= new JLabel(new ImageIcon(miVista.iconEducation));
+            
+            miVista.jlblAgregar[1].setIcon(new ImageIcon(miVista.iconEducation));
+            miVista.jlblTipo.setText("     Educacion");
         }
         
+        if(e.getSource().equals(miVista.jbtnEntertaiment)){
+            miVista.p4panelTipoGasto.setVisible(false);
+            miVista.p3panelAgregacion.setVisible(true);
+            
+            miVista.jlblAgregar[1].setIcon(new ImageIcon(miVista.iconEntertaiment));
+            miVista.jlblTipo.setText("     Entretenimiento");
+        }
         
+        if(e.getSource().equals(miVista.jbtnFood)){
+            miVista.p4panelTipoGasto.setVisible(false);
+            miVista.p3panelAgregacion.setVisible(true);
+            
+            miVista.jlblAgregar[1].setIcon(new ImageIcon(miVista.iconFood));
+            miVista.jlblTipo.setText("     Comida");
+        }
         
-//        if (e.getSource().equals(miVista.jbtnGastos)) {
-//            pokemon.setDamage(40);
-//            pokemon.setHealth(500);
-//            pokemon.setImagen(miVista.iconGifts);
-//            pokemon.setName("Bulbasur");
-//            enemigo.setDamage(45);
-//            enemigo.setHealth(400);
-//            enemigo.setImagen(miVista.iconEducation);
-//            enemigo.setName("Pikachu");
-//            new Controlador(new Campo(pokemon, enemigo));
-//            miVista.miVentana.dispose();
-//        }
-//    
-//         
-//        if (e.getSource().equals(miVista.jbtnSaldo)) {
-//            pokemon.setDamage(50);
-//            pokemon.setHealth(300);
-//            pokemon.setImagen(miVista.iconFood);
-//            pokemon.setName("Charmander");
-//            enemigo.setDamage(40);
-//            enemigo.setHealth(500);
-//            enemigo.setImagen(miVista.iconGifts);
-//            enemigo.setName("Bulbasur");
-//            new Controlador(new Campo(pokemon, enemigo));
-//            miVista.miVentana.dispose();
-//        }
-//        
+        if(e.getSource().equals(miVista.jbtnGifts)){
+            miVista.p4panelTipoGasto.setVisible(false);
+            miVista.p3panelAgregacion.setVisible(true);
+            
+            miVista.jlblAgregar[1].setIcon(new ImageIcon(miVista.iconGifts));
+            miVista.jlblTipo.setText("     Regalos");
+        }
+        
+        if(e.getSource().equals(miVista.jbtnHealth)){
+            miVista.p4panelTipoGasto.setVisible(false);
+            miVista.p3panelAgregacion.setVisible(true);
+            
+            miVista.jlblAgregar[1].setIcon(new ImageIcon(miVista.iconHealth));
+            miVista.jlblTipo.setText("     Salud");
+        }
+        
+        if(e.getSource().equals(miVista.jbtnHealth)){
+            miVista.p4panelTipoGasto.setVisible(false);
+            miVista.p3panelAgregacion.setVisible(true);
+            
+            miVista.jlblAgregar[1].setIcon(new ImageIcon(miVista.iconHealth));
+            miVista.jlblTipo.setText("     Salud");
+        }
+        
+        if(e.getSource().equals(miVista.jbtnRelation)){
+            miVista.p4panelTipoGasto.setVisible(false);
+            miVista.p3panelAgregacion.setVisible(true);
+            
+            miVista.jlblAgregar[1].setIcon(new ImageIcon(miVista.iconRelation));
+            miVista.jlblTipo.setText("     Amor y amistad");
+        }
+        
+        if(e.getSource().equals(miVista.jbtnShopping)){
+            miVista.p4panelTipoGasto.setVisible(false);
+            miVista.p3panelAgregacion.setVisible(true);
+            
+            miVista.jlblAgregar[1].setIcon(new ImageIcon(miVista.iconShopping));
+            miVista.jlblTipo.setText("     Shopping");
+        }
+        
+        if(e.getSource().equals(miVista.jbtnTransportation)){
+            miVista.p4panelTipoGasto.setVisible(false);
+            miVista.p3panelAgregacion.setVisible(true);
+            
+            miVista.jlblAgregar[1].setIcon(new ImageIcon(miVista.iconTransportation));
+            miVista.jlblTipo.setText("    Transporte");
+        }
+        
+        if(e.getSource().equals(miVista.jbtnTravel)){
+            miVista.p4panelTipoGasto.setVisible(false);
+            miVista.p3panelAgregacion.setVisible(true);
+            
+            miVista.jlblAgregar[1].setIcon(new ImageIcon(miVista.iconTravel));
+            miVista.jlblTipo.setText("     Viajes");
+        }
+        
+        if(e.getSource().equals(miVista.jbtnAhorro)){
+            miVista.p5PanelTipoIngreso.setVisible(false);
+            miVista.p3panelAgregacion.setVisible(true);
+            
+            miVista.jlblAgregar[1].setIcon(new ImageIcon(miVista.iconAhorro));
+            miVista.jlblTipo.setText("     Ahorro");
+        }
+        
+        if(e.getSource().equals(miVista.jbtnAward)){
+            miVista.p5PanelTipoIngreso.setVisible(false);
+            miVista.p3panelAgregacion.setVisible(true);
+            
+            miVista.jlblAgregar[1].setIcon(new ImageIcon(miVista.iconAward));
+            miVista.jlblTipo.setText("     Recompensa");
+        }
+        
+        if(e.getSource().equals(miVista.jbtnInterest)){
+            miVista.p5PanelTipoIngreso.setVisible(false);
+            miVista.p3panelAgregacion.setVisible(true);
+            
+            miVista.jlblAgregar[1].setIcon(new ImageIcon(miVista.iconInterest));
+            miVista.jlblTipo.setText("     Intereses");
+        }
+        
+        if(e.getSource().equals(miVista.jbtnMesada)){
+            miVista.p5PanelTipoIngreso.setVisible(false);
+            miVista.p3panelAgregacion.setVisible(true);
+            
+            miVista.jlblAgregar[1].setIcon(new ImageIcon(miVista.iconMesada));
+            miVista.jlblTipo.setText("     Mesada");
+        }
+        
+        if(e.getSource().equals(miVista.jbtnSelling)){
+            miVista.p5PanelTipoIngreso.setVisible(false);
+            miVista.p3panelAgregacion.setVisible(true);
+            
+            miVista.jlblAgregar[1].setIcon(new ImageIcon(miVista.iconSelling));
+            miVista.jlblTipo.setText("     Venta");
+        }
+        
+        if(e.getSource().equals(miVista.jbtnWork)){
+            miVista.p5PanelTipoIngreso.setVisible(false);
+            miVista.p3panelAgregacion.setVisible(true);
+            
+            miVista.jlblAgregar[1].setIcon(new ImageIcon(miVista.iconWork));
+            miVista.jlblTipo.setText("     Sueldo");
+        }
         
         
     }
@@ -129,5 +244,12 @@ public class Controller implements ActionListener {
         miVista.jbtnShopping.addActionListener(this);
         miVista.jbtnTransportation.addActionListener(this);
         miVista.jbtnTravel.addActionListener(this);
+        
+        miVista.jbtnAhorro.addActionListener(this);
+        miVista.jbtnAward.addActionListener(this);
+        miVista.jbtnInterest.addActionListener(this);
+        miVista.jbtnMesada.addActionListener(this);
+        miVista.jbtnSelling.addActionListener(this);
+        miVista.jbtnWork.addActionListener(this);
     }
 }

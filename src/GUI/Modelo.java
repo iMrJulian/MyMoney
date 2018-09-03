@@ -4,7 +4,7 @@
  */
 package GUI;
 
-import pokemon.*;
+import myMoney.Launcher;
 
 /**
  *
@@ -12,10 +12,11 @@ import pokemon.*;
  */
 public class Modelo {
 
-    private Pokemon miOperacion;
+    private Launcher miOperacion;
 
     public void ejecutarOperacion(double valor1, double valor2) {
         int h = 0;
+        int x =0;
         
 
     }

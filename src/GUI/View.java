@@ -9,6 +9,7 @@ import java.awt.Color;
 import java.awt.Component;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
+import java.awt.Font;
 import static java.awt.Frame.MAXIMIZED_BOTH;
 import java.awt.GraphicsEnvironment;
 import java.awt.GridBagLayout;
@@ -25,6 +26,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JRadioButton;
 import javax.swing.JScrollPane;
+import javax.swing.JTextField;
 
 /**
  *
@@ -58,10 +60,7 @@ public class View {
     protected JPanel p3panelAgregacion;
     protected JPanel p4panelTipoGasto;
     protected JPanel p5PanelTipoIngreso;
-//    protected JPanel p4PanelLateral;   
     protected JPanel p6panelUp;
-    protected JPanel p7panelPresente = p2PanelPrincipal;
-    protected JPanel p8panelPasado = p2PanelPrincipal;
     protected JButton jbtnGastos;
     protected JButton jbtnSaldo;
     protected JButton jbtnIngresos;
@@ -88,30 +87,14 @@ public class View {
     protected JButton jbtnMesada;
     protected JButton jbtnSelling;
     protected JButton jbtnWork;
-    protected JButton b11Boton7;
-    protected JButton b12Boton8;
-    protected JButton b13Boton9;
-    protected JLabel l3LabelVacio1;
-    protected JButton b14Boton0;
-    protected JLabel l4LabelVacio2;
-    protected JButton b9Boton5;
-    protected JRadioButton r1Radio;
-    protected JRadioButton r2Radio;
     protected JLabel jlblFondo;
-    protected JLabel l5Label;
-    protected JLabel l6Label;
+    protected JLabel jlblTipo;
     protected JLabel[] uMovimientos;
     protected JLabel[] jlblAgregar;
     protected JLabel jlblUp;
-    protected JLabel l8LabelVacio4;
-    protected JLabel l9LabelVacio5;
-    protected JLabel l10LabelVacio6;
-    protected JLabel l11LabelVacio7;
-    protected JLabel l12LabelVaci08;
-    protected JLabel l13LabelVacio9;
-    protected JLabel l14LabelVacio10;
-    protected JButton b15BotonBorrar;
-    protected JButton b16BotonClear;
+    protected JTextField jtfCantidad;
+    protected JTextField jtfFecha;
+    protected JTextField jtfNota;
     protected Image FondoNegro;
     protected Image iconGifts;
     protected Image iconFood;
@@ -133,6 +116,9 @@ public class View {
     protected Image iconMesada;
     protected Image iconSelling;
     protected Image iconWork;
+    protected Image iconMoney;
+    protected Image iconCalendario;
+    protected Image iconPersona;
     protected Rectangle maxBounds = GraphicsEnvironment.getLocalGraphicsEnvironment().
         getMaximumWindowBounds();
     protected Rectangle maxBoton;
@@ -157,14 +143,16 @@ public class View {
         this.miVentana = new JFrame("MyMoney");
 //        this.miVentana.setSize(this.maxBounds.width,this.maxBounds.height);
         this.miVentana.setExtendedState(MAXIMIZED_BOTH);
+        this.miVentana.setMinimumSize(new Dimension(maxBounds.width-100,maxBounds.height-100));
         this.miVentana.setLayout(null);
         p1panelLateral.setBounds(new Rectangle(0,0,400,maxBounds.height));
         
         this.miVentana.add(p6panelUp);
+         this.miVentana.add(p4panelTipoGasto);
         this.miVentana.add(p1panelLateral);
         this.miVentana.add(p2PanelPrincipal);
         this.miVentana.add(p3panelAgregacion);
-        this.miVentana.add(p4panelTipoGasto);
+       
         this.miVentana.add(p5PanelTipoIngreso);      
         
         this.miVentana.setVisible(true);
@@ -193,13 +181,7 @@ public class View {
         }          
     }
     
-//    private void panelLateral(){
-//        this.p4PanelLateral = new JPanel();
-//        this.p4PanelLateral.setLayout(new FlowLayout());
-//        
-////        this.jlblFondo = new JLabel(new ImageIcon(FondoNegro));
-////        this.p4PanelLateral.add(jlblFondo);
-//    }
+
     
     private void panelUp(){
         this.p6panelUp = new JPanel();
@@ -237,14 +219,17 @@ public class View {
         this.jbtnGastos = new JButton();
         this.jbtnGastos.setBounds(new Rectangle(0,0,width,160));
         this.jbtnGastos.setText("<html>Gastos<br>0$</html>");
+        this.jbtnGastos.setFont(new Font("Verdana",0,18));
         
         this.jbtnSaldo = new JButton();
         this.jbtnSaldo.setBounds(new Rectangle(width,0,width,160));
         this.jbtnSaldo.setText("<html>Saldo<br>0$</html>");
+        this.jbtnSaldo.setFont(new Font("Verdana",0,18));
         
         this.jbtnIngresos = new JButton();
         this.jbtnIngresos.setText("<html>Ingresos<br>0$</html>");
         this.jbtnIngresos.setBounds(new Rectangle(width*2,0,width,160));
+        this.jbtnIngresos.setFont(new Font("Verdana",0,18));
        
         this.iconAgregar = new ImageIcon(getClass().getResource("../Imagenes/agregacion.png")).getImage();
         this.jbtnAgregar = new JButton(new ImageIcon(iconAgregar));
@@ -258,7 +243,8 @@ public class View {
         for (int i=0;i<5;i++){                      
             for (int j=0;j<3;j++){
                 this.uMovimientos[i+j] = new JLabel();
-                this.uMovimientos[i+j].setText("HOLA");               
+                this.uMovimientos[i+j].setText("HOLA");  
+                this.uMovimientos[i+j].setFont(new Font("Verdana",0,18));
                 this.uMovimientos[i+j].setBounds(new Rectangle(x[j],y,x[j+1],100));
                 this.uMovimientos[i+j].setBorder(BorderFactory.createLineBorder(Color.black));
                 this.p2PanelPrincipal.add(this.uMovimientos[i+j]);               
@@ -279,7 +265,7 @@ public class View {
         x[2]=400;
         int y = 70;
         
-        this.jlblAgregar = new JLabel[8];
+        this.jlblAgregar = new JLabel[4];
         
         this.p3panelAgregacion = new JPanel();
         this.p3panelAgregacion.setLayout(null);
@@ -289,22 +275,53 @@ public class View {
         this.jbtnGasto = new JButton();
         this.jbtnGasto.setBounds(x1,10,width,y);
         this.jbtnGasto.setBackground(Color.GRAY);
+        this.jbtnGasto.setFont(new Font("Verdana",0,18));
         this.jbtnGasto.setText("Gasto");
         
         this.jbtnIngreso = new JButton();
         this.jbtnIngreso.setBackground(Color.GRAY);
         this.jbtnIngreso.setBounds(x2,10,width,y);
+        this.jbtnIngreso.setFont(new Font("Verdana",0,18));
         this.jbtnIngreso.setText("Ingreso");
         
-        for (int i=0;i<4;i++){
-            for (int j=0;j<2;j++){
-                this.jlblAgregar[i+j] = new JLabel();
-                this.jlblAgregar[i+j].setText("HOLA");
-                this.jlblAgregar[i+j].setBounds(new Rectangle(x[j],y,x[j+1],100));
-                this.p3panelAgregacion.add(this.jlblAgregar[(i+j)]);               
-            }           
-            y+=100;
-        }
+//        for (int i=0;i<4;i++){
+//            for (int j=0;j<2;j++){
+//                this.jlblAgregar[i+j] = new JLabel();
+////                this.jlblAgregar[i+j].setBounds(new Rectangle(x[j],y,x[j+1],100));
+//                this.p3panelAgregacion.add(this.jlblAgregar[(i+j)]);               
+//            }           
+//            y+=100;
+//        }
+        this.iconMoney = new ImageIcon(getClass().getResource("../Imagenes/ahorro.png")).getImage();
+        this.jlblAgregar[0] = new JLabel(new ImageIcon(iconMoney));
+        this.jlblAgregar[0].setBounds(new Rectangle(0,170,100,100));
+        
+        this.jtfCantidad = new JTextField();
+        this.jtfCantidad.setBounds(new Rectangle(100,170,600,100));
+        this.jtfCantidad.setFont(new Font("Verdana",0,18));
+       
+        this.jlblAgregar[1] = new JLabel();
+        this.jlblAgregar[1].setBounds(new Rectangle(0,275,100,100));
+           
+        this.jlblTipo = new JLabel();
+        this.jlblTipo.setBounds(new Rectangle(100,275,600,100));
+        this.jlblTipo.setFont(new Font("Verdana",0,18));
+        
+        this.iconCalendario = new ImageIcon(getClass().getResource("../Imagenes/interest.png")).getImage();
+        this.jlblAgregar[2] = new JLabel(new ImageIcon(iconCalendario));
+        this.jlblAgregar[2].setBounds(new Rectangle(0,380,100,100));
+        
+        this.jtfFecha = new JTextField();
+        this.jtfFecha.setBounds(new Rectangle(100,380,600,100));
+        this.jtfFecha.setFont(new Font("Verdana",0,18));
+        
+        this.iconPersona = new ImageIcon(getClass().getResource("../Imagenes/mesada.png")).getImage();
+        this.jlblAgregar[3] = new JLabel(new ImageIcon(iconPersona));
+        this.jlblAgregar[3].setBounds(new Rectangle(0,485,100,100));
+        
+        this.jtfNota = new JTextField();
+        this.jtfNota.setBounds(new Rectangle(100,485,600,100));
+        this.jtfNota.setFont(new Font("Verdana",0,18));
         
         this.jbtnGuardar = new JButton("Guardar");
         this.jbtnGuardar.setEnabled(false);
@@ -313,116 +330,15 @@ public class View {
         this.p3panelAgregacion.add(jbtnIngreso);
         this.p3panelAgregacion.add(jbtnGasto);
         this.p3panelAgregacion.add(jbtnGuardar);
+        this.p3panelAgregacion.add(jlblAgregar[0]);
+        this.p3panelAgregacion.add(jlblAgregar[1]);
+        this.p3panelAgregacion.add(jlblAgregar[2]);
+        this.p3panelAgregacion.add(jlblAgregar[3]);
+        this.p3panelAgregacion.add(jtfCantidad);
+        this.p3panelAgregacion.add(jtfNota);
+        this.p3panelAgregacion.add(jtfFecha);
+        this.p3panelAgregacion.add(jlblTipo);
     }
-    
-//    private void panelAgregacion() {
-//        this.p3panelAgregacion = new JPanel();
-//        this.p3panelAgregacion.setLayout(new GridLayout(2, 3));
-//        this.jbtnGastos = new JButton();
-//        this.jbtnGastos.setText("Gastos");
-//        this.jbtnSaldo = new JButton();
-//        this.jbtnSaldo.setText("Saldo");
-//        this.jbtnIngresos = new JButton();
-//        this.jbtnIngresos.setText("Ingresos");
-//        this.l5Label = new JLabel();
-//        this.l6Label = new JLabel();
-//        this.jbtnAgregar = new JButton();
-//        this.jbtnAgregar.setText("+");        
-//        this.p2PanelPrincipal.add(jbtnGastos);
-//        this.p2PanelPrincipal.add(jbtnSaldo);
-//        this.p2PanelPrincipal.add(jbtnIngresos);
-//        this.p2PanelPrincipal.add(l5Label);
-//        this.p2PanelPrincipal.add(l6Label);
-//        this.p2PanelPrincipal.add(jbtnAgregar);
-//
-//    }
-
-//    private void panelNumerico() {
-//        this.p7panelPresente = new JPanel();
-//        this.p7panelPresente.setLayout(new GridLayout(4, 3));
-//        b5Boton1 = new JButton();
-//        b6Boton2 = new JButton();
-//        b7Boton3 = new JButton();
-//        jbtnBack = new JButton();
-//        b9Boton5 = new JButton();
-//        jbtnGuardar = new JButton();
-//        b11Boton7 = new JButton();
-//        b12Boton8 = new JButton();
-//        b13Boton9 = new JButton();
-//        b14Boton0 = new JButton();
-//        b15BotonBorrar = new JButton();
-//        l3LabelVacio1 = new JLabel();
-//        //l4LabelVacio2 = new JLabel();
-//
-//
-//
-//        this.p7panelPresente.add(b5Boton1);
-//        this.p7panelPresente.add(b6Boton2);
-//        this.p7panelPresente.add(b7Boton3);
-//        this.p7panelPresente.add(jbtnBack);
-//        this.p7panelPresente.add(b9Boton5);
-//        this.p7panelPresente.add(jbtnGuardar);
-//        this.p7panelPresente.add(b11Boton7);
-//        this.p7panelPresente.add(b12Boton8);
-//        this.p7panelPresente.add(b13Boton9);
-//        this.p7panelPresente.add(l3LabelVacio1);
-//        this.p7panelPresente.add(b14Boton0);
-//        this.p7panelPresente.add(b15BotonBorrar);
-//        this.b5Boton1.setText("1");
-//        this.b6Boton2.setText("2");
-//        this.b7Boton3.setText("3");
-//        this.jbtnBack.setText("4");
-//        this.b9Boton5.setText("5");
-//        this.jbtnGuardar.setText("6");
-//        this.b11Boton7.setText("7");
-//        this.b12Boton8.setText("8");
-//        this.b13Boton9.setText("9");
-//        this.b14Boton0.setText("0");
-//        this.b15BotonBorrar.setText("<-");
-//
-//
-//    }
-
-//    private void panelOperaciones() {
-//        this.p1panelLateral = new JPanel();
-//        // this.p1panelLateral.setLayout(new BoxLayout(p1panelLateral, BoxLayout.Y_AXIS));
-//
-//        this.p1panelLateral.setLayout(new GridLayout(5, 2));
-//        //this.p1panelLateral.setLayout(new BorderLayout());
-//        b1BotonSuma = new JButton();
-//        b2BotonResta = new JButton();
-//        b3BotonMultiplicar = new JButton();
-//        b4BotonDividir = new JButton();
-//        jlblUp = new JLabel();
-//        l8LabelVacio4 = new JLabel();
-//        l9LabelVacio5 = new JLabel();
-//        l10LabelVacio6 = new JLabel();
-//        l11LabelVacio7 = new JLabel();
-//        l12LabelVaci08 = new JLabel();
-//        l13LabelVacio9 = new JLabel();
-//        l14LabelVacio10 = new JLabel();
-//        b16BotonClear = new JButton();
-//
-//        this.p1panelLateral.add(jlblUp);
-//        this.p1panelLateral.add(b1BotonSuma);
-//        //     this.p1panelLateral.add(l8LabelVacio4);
-//        this.p1panelLateral.add(l9LabelVacio5);
-//        this.p1panelLateral.add(b2BotonResta);
-//        //    this.p1panelLateral.add(l10LabelVacio6);
-//        this.p1panelLateral.add(l11LabelVacio7);
-//        this.p1panelLateral.add(b3BotonMultiplicar);
-//        //     this.p1panelLateral.add(l12LabelVaci08);
-//        this.p1panelLateral.add(l13LabelVacio9);
-//        this.p1panelLateral.add(b4BotonDividir);
-//        this.p1panelLateral.add(l14LabelVacio10);
-//        this.p1panelLateral.add(b16BotonClear);
-//        this.b1BotonSuma.setText("+");
-//        this.b2BotonResta.setText("-");
-//        this.b3BotonMultiplicar.setText("*");
-//        this.b4BotonDividir.setText("/");
-//        this.b16BotonClear.setText("Clear");
-//
-//    }
 
     private void panelDeTGastos() {
         this.p4panelTipoGasto = new JPanel();
@@ -513,24 +429,4 @@ public class View {
         this.p5PanelTipoIngreso.add(jbtnWork);  
     
     }
-//    private void panelEntradayNumericoEN() {
-//        this.p4panelEntradayNumericoEN = new JPanel();
-//        this.p4panelEntradayNumericoEN.setLayout(new GridLayout(2, 1));
-//        this.p4panelEntradayNumericoEN.add(p6panelEntrada);
-//        this.p4panelEntradayNumericoEN.add(p7panelPresente);
-//    }
-
-//    private void panelENyOperacionesENO() {
-//        p2panelENyOperacionesENO = new JPanel();
-//        this.p2panelENyOperacionesENO.setLayout(new GridLayout(1, 2));
-//        this.p2panelENyOperacionesENO.add(p4panelEntradayNumericoEN);
-//        this.p2panelENyOperacionesENO.add(p1panelLateral);
-//    }
-
-//    private void panelENOyResultadoPanelPrincipal() {
-//        this.p1PanelENOyResultadoPanelPrincipal = new JPanel();
-//        this.p1PanelENOyResultadoPanelPrincipal.setLayout(new GridLayout(3, 1));
-////        this.p1PanelENOyResultadoPanelPrincipal.add(p2panelENyOperacionesENO);
-//        this.p1PanelENOyResultadoPanelPrincipal.add(p3panelAgragacion);
-//    }
 }
